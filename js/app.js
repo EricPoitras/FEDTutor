@@ -1,5 +1,7 @@
 // Start a new session by loading the data in the user interface
 function initiate_session() {
+	$("#myModal2").modal("show");
+	session_id = Math.round(Math.random() * 1000000000);
 	module.textContent = data.module.type; // Update module title
 	// Attempts to load data in each activity and toggles activity list items if data is unavailable
 	try {
@@ -40,6 +42,118 @@ function initiate_session() {
 		activity_2_item.style.borderBottom = "solid";
 		activity_2_item.style.borderBottomWidth = "1px";
 		activity_2_item.style.borderBottomColor = "rgba(0,0,0,.125)";
+	}
+	try {
+		activity_4_title.textContent = data.activities[3].title;
+		activity_4_content.innerHTML = data.activities[3].content;
+		activity_4_hint.innerHTML = data.activities[3].hint[hint].content;
+		activity_4_success.style.display = "none";
+		activity_4_danger.style.display = "none";
+		activity_4_card_success.style.display = "none";
+		activity_4_card_danger.style.display = "none";
+	} catch {
+		activity_4_item.style.display = "none";
+		activity_3_item.style.borderBottom = "solid";
+		activity_3_item.style.borderBottomWidth = "1px";
+		activity_3_item.style.borderBottomColor = "rgba(0,0,0,.125)";
+	}
+	try {
+		activity_5_title.textContent = data.activities[4].title;
+		activity_5_content.innerHTML = data.activities[4].content;
+		activity_5_hint.innerHTML = data.activities[4].hint[hint].content;
+		activity_5_success.style.display = "none";
+		activity_5_danger.style.display = "none";
+		activity_5_card_success.style.display = "none";
+		activity_5_card_danger.style.display = "none";
+	} catch {
+		activity_5_item.style.display = "none";
+		activity_4_item.style.borderBottom = "solid";
+		activity_4_item.style.borderBottomWidth = "1px";
+		activity_4_item.style.borderBottomColor = "rgba(0,0,0,.125)";
+	}
+	try {
+		activity_6_title.textContent = data.activities[5].title;
+		activity_6_content.innerHTML = data.activities[5].content;
+		activity_6_hint.innerHTML = data.activities[5].hint[hint].content;
+		activity_6_success.style.display = "none";
+		activity_6_danger.style.display = "none";
+		activity_6_card_success.style.display = "none";
+		activity_6_card_danger.style.display = "none";
+	} catch {
+		activity_6_item.style.display = "none";
+		activity_5_item.style.borderBottom = "solid";
+		activity_5_item.style.borderBottomWidth = "1px";
+		activity_5_item.style.borderBottomColor = "rgba(0,0,0,.125)";
+	}
+	try {
+		activity_7_title.textContent = data.activities[6].title;
+		activity_7_content.innerHTML = data.activities[6].content;
+		activity_7_hint.innerHTML = data.activities[6].hint[hint].content;
+		activity_7_success.style.display = "none";
+		activity_7_danger.style.display = "none";
+		activity_7_card_success.style.display = "none";
+		activity_7_card_danger.style.display = "none";
+	} catch {
+		activity_7_item.style.display = "none";
+		activity_6_item.style.borderBottom = "solid";
+		activity_6_item.style.borderBottomWidth = "1px";
+		activity_6_item.style.borderBottomColor = "rgba(0,0,0,.125)";
+	}
+	try {
+		activity_8_title.textContent = data.activities[7].title;
+		activity_8_content.innerHTML = data.activities[7].content;
+		activity_8_hint.innerHTML = data.activities[7].hint[hint].content;
+		activity_8_success.style.display = "none";
+		activity_8_danger.style.display = "none";
+		activity_8_card_success.style.display = "none";
+		activity_8_card_danger.style.display = "none";
+	} catch {
+		activity_8_item.style.display = "none";
+		activity_7_item.style.borderBottom = "solid";
+		activity_7_item.style.borderBottomWidth = "1px";
+		activity_7_item.style.borderBottomColor = "rgba(0,0,0,.125)";
+	}
+	try {
+		activity_9_title.textContent = data.activities[8].title;
+		activity_9_content.innerHTML = data.activities[8].content;
+		activity_9_hint.innerHTML = data.activities[8].hint[hint].content;
+		activity_9_success.style.display = "none";
+		activity_9_danger.style.display = "none";
+		activity_9_card_success.style.display = "none";
+		activity_9_card_danger.style.display = "none";
+	} catch {
+		activity_9_item.style.display = "none";
+		activity_8_item.style.borderBottom = "solid";
+		activity_8_item.style.borderBottomWidth = "1px";
+		activity_8_item.style.borderBottomColor = "rgba(0,0,0,.125)";
+	}
+	try {
+		activity_10_title.textContent = data.activities[9].title;
+		activity_10_content.innerHTML = data.activities[9].content;
+		activity_10_hint.innerHTML = data.activities[9].hint[hint].content;
+		activity_10_success.style.display = "none";
+		activity_10_danger.style.display = "none";
+		activity_10_card_success.style.display = "none";
+		activity_10_card_danger.style.display = "none";
+	} catch {
+		activity_10_item.style.display = "none";
+		activity_9_item.style.borderBottom = "solid";
+		activity_9_item.style.borderBottomWidth = "1px";
+		activity_9_item.style.borderBottomColor = "rgba(0,0,0,.125)";
+	}
+	try {
+		activity_11_title.textContent = data.activities[10].title;
+		activity_11_content.innerHTML = data.activities[10].content;
+		activity_11_hint.innerHTML = data.activities[10].hint[hint].content;
+		activity_11_success.style.display = "none";
+		activity_11_danger.style.display = "none";
+		activity_11_card_success.style.display = "none";
+		activity_11_card_danger.style.display = "none";
+	} catch {
+		//activity_11_item.style.display = "none";
+		activity_10_item.style.borderBottom = "solid";
+		activity_10_item.style.borderBottomWidth = "1px";
+		activity_10_item.style.borderBottomColor = "rgba(0,0,0,.125)";
 	}
 	// Add more activities as necessary ...
 }
@@ -95,6 +209,48 @@ function decrement_activity() {
 		activity_3_card_danger.style.display = "block";
 		activity_3_card_danger.textContent = rule;
 		activity_3_card_success.style.display = "none";
+	} else if (activity == 3) {
+		activity_4_success.style.display = "none";
+		activity_4_danger.style.display = "inline";
+		activity_4_card_danger.style.display = "block";
+		activity_4_card_danger.textContent = rule;
+		activity_4_card_success.style.display = "none";
+	} else if (activity == 4) {
+		activity_5_success.style.display = "none";
+		activity_5_danger.style.display = "inline";
+		activity_5_card_danger.style.display = "block";
+		activity_5_card_danger.textContent = rule;
+		activity_5_card_success.style.display = "none";
+	} else if (activity == 5) {
+		activity_6_success.style.display = "none";
+		activity_6_danger.style.display = "inline";
+		activity_6_card_danger.style.display = "block";
+		activity_6_card_danger.textContent = rule;
+		activity_6_card_success.style.display = "none";
+	} else if (activity == 6) {
+		activity_7_success.style.display = "none";
+		activity_7_danger.style.display = "inline";
+		activity_7_card_danger.style.display = "block";
+		activity_7_card_danger.textContent = rule;
+		activity_7_card_success.style.display = "none";
+	} else if (activity == 7) {
+		activity_8_success.style.display = "none";
+		activity_8_danger.style.display = "inline";
+		activity_8_card_danger.style.display = "block";
+		activity_8_card_danger.textContent = rule;
+		activity_8_card_success.style.display = "none";
+	} else if (activity == 8) {
+		activity_9_success.style.display = "none";
+		activity_9_danger.style.display = "inline";
+		activity_9_card_danger.style.display = "block";
+		activity_9_card_danger.textContent = rule;
+		activity_9_card_success.style.display = "none";
+	} else if (activity == 9) {
+		activity_10_success.style.display = "none";
+		activity_10_danger.style.display = "inline";
+		activity_10_card_danger.style.display = "block";
+		activity_10_card_danger.textContent = rule;
+		activity_10_card_success.style.display = "none";
 	} else {
 	}
 }
@@ -123,8 +279,49 @@ function increment_activity() {
 		activity_3_card_success.style.display = "block";
 		activity_3_card_success.textContent = rule;
 		activity_3_card_danger.style.display = "none";
-		//activity_4_title.removeAttribute("disabled");
-	} else {
+		activity_4_title.removeAttribute("disabled");
+	} else if (activity == 4) {
+		activity_4_success.style.display = "inline";
+		activity_4_danger.style.display = "none";
+		activity_4_card_success.style.display = "block";
+		activity_4_card_success.textContent = rule;
+		activity_4_card_danger.style.display = "none";
+		activity_5_title.removeAttribute("disabled");
+	} else if (activity == 5) {
+		activity_5_success.style.display = "inline";
+		activity_5_danger.style.display = "none";
+		activity_5_card_success.style.display = "block";
+		activity_5_card_success.textContent = rule;
+		activity_5_card_danger.style.display = "none";
+		activity_6_title.removeAttribute("disabled");
+	} else if (activity == 6) {
+		activity_6_success.style.display = "inline";
+		activity_6_danger.style.display = "none";
+		activity_6_card_success.style.display = "block";
+		activity_6_card_success.textContent = rule;
+		activity_6_card_danger.style.display = "none";
+		activity_7_title.removeAttribute("disabled");
+	} else if (activity == 7) {
+		activity_7_success.style.display = "inline";
+		activity_7_danger.style.display = "none";
+		activity_7_card_success.style.display = "block";
+		activity_7_card_success.textContent = rule;
+		activity_7_card_danger.style.display = "none";
+		activity_8_title.removeAttribute("disabled");
+	} else if (activity == 8) {
+		activity_8_success.style.display = "inline";
+		activity_8_danger.style.display = "none";
+		activity_8_card_success.style.display = "block";
+		activity_8_card_success.textContent = rule;
+		activity_8_card_danger.style.display = "none";
+		activity_9_title.removeAttribute("disabled");
+	} else if (activity == 9) {
+		activity_9_success.style.display = "inline";
+		activity_9_danger.style.display = "none";
+		activity_9_card_success.style.display = "block";
+		activity_9_card_success.textContent = rule;
+		activity_9_card_danger.style.display = "none";
+		activity_10_title.removeAttribute("disabled");
 	}
 
 	close_activity();
@@ -150,6 +347,14 @@ function update_activity(grade_response) {
 // Store the response variables in JSON and update download project file & Call update_activity function
 function store_response(grade_response) {
 	var myObj = {
+		version: "FEDTutor_v1.0_build02/28/20",
+		session: session_id,
+		username: username,
+		gender: gender,
+		age: age,
+		degree: degree,
+		university: university,
+		gpa: gpa,
 		activity: activity,
 		html: html.value,
 		css: css.value,
@@ -163,6 +368,54 @@ function store_response(grade_response) {
 	};
 	this.data.responses.push(myObj);
 	console.log(this.data);
+	var urladress =
+		"https://cors-anywhere.herokuapp.com/https://docs.google.com/forms/d/e/1FAIpQLScSxxD6AxEzekTYdPjvUP0TitGSvt6pRRrK-eZL0fP0g9QN9A/formResponse?" +
+		"entry.1792772475=" +
+		String(myObj.version) +
+		"&entry.1894837576=" +
+		String(myObj.session) +
+		"&entry.1703769330=" +
+		String(myObj.username) +
+		"&entry.899979325=" +
+		String(myObj.gender) +
+		"&entry.1897082137=" +
+		String(myObj.age) +
+		"&entry.529363251=" +
+		String(myObj.degree) +
+		"&entry.1488014403=" +
+		String(myObj.university) +
+		"&entry.997300416=" +
+		String(myObj.gpa) +
+		"&entry.792179151=" +
+		String(myObj.activity) +
+		"&entry.1769579832=" +
+		String(myObj.html) +
+		"&entry.194875640=" +
+		String(myObj.css) +
+		"&entry.895369426=" +
+		String(myObj.js) +
+		"&entry.345947465=" +
+		String(myObj.hint_id) +
+		"&entry.470737931=" +
+		String(myObj.request) +
+		"&entry.1352313708=" +
+		String(myObj.evaluation) +
+		"&entry.853863687=" +
+		String(myObj.rule) +
+		"&entry.1705190915=" +
+		String(myObj.elapsed_time) +
+		"&entry.1584769110=" +
+		String(myObj.attempt) +
+		"&submit=Submit";
+	fetch(urladress, {
+		method: "post",
+		headers: {
+			"Content-Type": "application/json"
+		}
+	})
+		.then(response => response.json())
+		.then(data => console.log("data is", data))
+		.catch(error => console.log("error is", error));
 	var JSONdata = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.data));
 	btn_export_report.setAttribute("href", "data:" + JSONdata);
 	btn_export_report.setAttribute("download", "JSONdata.json");

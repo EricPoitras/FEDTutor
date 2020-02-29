@@ -45,8 +45,8 @@ var data = {
 				"<p>Attributes are content added to the opening tag of an element and can be used in several different ways, from providing information to changing styling. Attributes are made up of the following two parts:<ul><li>The name of the attribute</li><li>The value of the attribute</li></ul></p><p>One commonly used attribute is the id.</p><p>Add an id attribute with the value 'introduction' to the <<span>div></span> tag</p>",
 			hint: [{ id: "Hint #1", content: "<p>Try the following:</p><p><<span>element id='value'</span>>text content<<span>/element</span>></p>" }],
 			solution: [
-				{ id: "Opening tag", criteria: "<div id='introduction'>" },
-				{ id: "Closing tag", criteria: "</div>" }
+				{ id: "Opening tag", criteria: "<divid='introduction'>" },
+				{ id: "Closing tag", criteria: "</divid='introduction'>" }
 			]
 		},
 		{

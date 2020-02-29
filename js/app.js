@@ -161,7 +161,9 @@ function initiate_session() {
 // Display code in the iframe to preview
 function update_livepreview() {
 	code.open();
-	code.writeln(html.value + "<style>" + css.value + "</style>" + "<script>" + js.value + "</script>");
+	code.writeln(
+		"<!DOCTYPE html><head><style>" + css.value + "</style>" + "<title>W3C Validation</title></head><body>" + html.value + "<script>" + js.value + "</script></body>"
+	);
 	code.close();
 }
 
@@ -195,61 +197,61 @@ function decrement_activity() {
 		activity_1_success.style.display = "none";
 		activity_1_danger.style.display = "inline";
 		activity_1_card_danger.style.display = "block";
-		activity_1_card_danger.textContent = rule;
+		activity_1_card_danger.innerHTML = rule + "<br>" + w3c_validation;
 		activity_1_card_success.style.display = "none";
 	} else if (activity == 1) {
 		activity_2_success.style.display = "none";
 		activity_2_danger.style.display = "inline";
 		activity_2_card_danger.style.display = "block";
-		activity_2_card_danger.textContent = rule;
+		activity_2_card_danger.innerHTML = rule + "<br>" + w3c_validation;
 		activity_2_card_success.style.display = "none";
 	} else if (activity == 2) {
 		activity_3_success.style.display = "none";
 		activity_3_danger.style.display = "inline";
 		activity_3_card_danger.style.display = "block";
-		activity_3_card_danger.textContent = rule;
+		activity_3_card_danger.innerHTML = rule + "<br>" + w3c_validation;
 		activity_3_card_success.style.display = "none";
 	} else if (activity == 3) {
 		activity_4_success.style.display = "none";
 		activity_4_danger.style.display = "inline";
 		activity_4_card_danger.style.display = "block";
-		activity_4_card_danger.textContent = rule;
+		activity_4_card_danger.innerHTML = rule + "<br>" + w3c_validation;
 		activity_4_card_success.style.display = "none";
 	} else if (activity == 4) {
 		activity_5_success.style.display = "none";
 		activity_5_danger.style.display = "inline";
 		activity_5_card_danger.style.display = "block";
-		activity_5_card_danger.textContent = rule;
+		activity_5_card_danger.innerHTML = rule + "<br>" + w3c_validation;
 		activity_5_card_success.style.display = "none";
 	} else if (activity == 5) {
 		activity_6_success.style.display = "none";
 		activity_6_danger.style.display = "inline";
 		activity_6_card_danger.style.display = "block";
-		activity_6_card_danger.textContent = rule;
+		activity_6_card_danger.innerHTML = rule + "<br>" + w3c_validation;
 		activity_6_card_success.style.display = "none";
 	} else if (activity == 6) {
 		activity_7_success.style.display = "none";
 		activity_7_danger.style.display = "inline";
 		activity_7_card_danger.style.display = "block";
-		activity_7_card_danger.textContent = rule;
+		activity_7_card_danger.innerHTML = rule + "<br>" + w3c_validation;
 		activity_7_card_success.style.display = "none";
 	} else if (activity == 7) {
 		activity_8_success.style.display = "none";
 		activity_8_danger.style.display = "inline";
 		activity_8_card_danger.style.display = "block";
-		activity_8_card_danger.textContent = rule;
+		activity_8_card_danger.innerHTML = rule + "<br>" + w3c_validation;
 		activity_8_card_success.style.display = "none";
 	} else if (activity == 8) {
 		activity_9_success.style.display = "none";
 		activity_9_danger.style.display = "inline";
 		activity_9_card_danger.style.display = "block";
-		activity_9_card_danger.textContent = rule;
+		activity_9_card_danger.innerHTML = rule + "<br>" + w3c_validation;
 		activity_9_card_success.style.display = "none";
 	} else if (activity == 9) {
 		activity_10_success.style.display = "none";
 		activity_10_danger.style.display = "inline";
 		activity_10_card_danger.style.display = "block";
-		activity_10_card_danger.textContent = rule;
+		activity_10_card_danger.innerHTML = rule + "<br>" + w3c_validation;
 		activity_10_card_success.style.display = "none";
 	} else {
 	}
@@ -363,6 +365,7 @@ function store_response(grade_response) {
 		request: request,
 		evaluation: grade_response,
 		rule: rule,
+		w3c_validation: w3c_validation,
 		elapsed_time: elapsed_time,
 		attempt: attempt
 	};
@@ -402,6 +405,8 @@ function store_response(grade_response) {
 		String(myObj.evaluation) +
 		"&entry.853863687=" +
 		String(myObj.rule) +
+		"&entry.293645210=" +
+		String(myObj.w3c_validation) +
 		"&entry.1705190915=" +
 		String(myObj.elapsed_time) +
 		"&entry.1584769110=" +
@@ -425,15 +430,20 @@ function store_response(grade_response) {
 
 // Rules to evaluate responses - return either correct or incorrect for response evaluation
 function grade_response() {
-	if (html.value.toString().includes(data.activities[activity].solution[0].criteria) == false) {
+	var parsed_html = html.value
+		.toString()
+		.replace(/ /g, "")
+		.replace(/"/g, "'");
+	console.log(parsed_html);
+	if (parsed_html.includes(data.activities[activity].solution[0].criteria) == false) {
 		rule = "Opening tag is not mentioned";
 		//console.log("Opening tag is not mentioned");
 		return "incorrect";
-	} else if (html.value.toString().includes(data.activities[activity].solution[1].criteria) == false) {
+	} else if (parsed_html.includes(data.activities[activity].solution[1].criteria) == false) {
 		rule = "Closing tag is not mentioned";
 		//console.log("Closing tag is not mentioned");
 		return "incorrect";
-	} else if (html.value.toString().indexOf(data.activities[activity].solution[0].criteria) > html.value.toString().indexOf(data.activities[activity].solution[1].criteria)) {
+	} else if (parsed_html.indexOf(data.activities[activity].solution[0].criteria) > parsed_html.lastIndexOf(data.activities[activity].solution[1].criteria)) {
 		rule = "Opening tag is mentioned after the closing tag";
 		//console.log("Opening tag is not mentioned prior to closing tag");
 		return "incorrect";
@@ -441,4 +451,39 @@ function grade_response() {
 		rule = "Opening tag is mentioned before the closing tag";
 		return "correct";
 	}
+}
+
+async function HTML_W3_Validation() {
+	await fetch("https://cors-anywhere.herokuapp.com/http://html5.validator.nu/?out=json", {
+		method: "post",
+		headers: {
+			"Content-Type": "text/html; charset=UTF-8"
+		},
+		body: String(
+			"<!DOCTYPE html><head><style>" +
+				css.value +
+				"</style>" +
+				"<title>W3C Validation</title></head><body>" +
+				html.value +
+				"<script>" +
+				js.value +
+				"</script></body>"
+		)
+	})
+		.then(response => response.json())
+		.then(function(data) {
+			//console.log("data is", data);
+			console.log(data);
+			for (var i = 0; i < data.messages.length; i++) {
+				w3c_validation += data.messages[i].message + " : " + data.messages[i].extract + ";</br>";
+				//Do something
+			}
+			//console.log(w3c_validation);
+			store_response(grade_response());
+		})
+		.catch(function(error) {
+			w3c_validation = "";
+			console.log("error is", error);
+			store_response(grade_response());
+		});
 }

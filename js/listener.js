@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", event => {
 submit.addEventListener("click", function() {
 	update_livepreview(); // Display the code in the iframe
 	end(); // Set the end time to define elapsed time
-	store_response(grade_response()); // Stores the results of the response evaluation in JSON object
+	HTML_W3_Validation();
 	start(); // Set the start time again to calculate elapsed time
 });
 

@@ -10,6 +10,7 @@ var elapsed_time = 0;
 var startTime, endTime;
 var attempt = 1;
 var rule = "Undefined";
+var w3c_validation = "";
 
 var session_id = 0;
 var username = "";

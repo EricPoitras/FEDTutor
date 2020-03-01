@@ -12,6 +12,7 @@ function initiate_session() {
 		activity_1_danger.style.display = "none";
 		activity_1_card_success.style.display = "none";
 		activity_1_card_danger.style.display = "none";
+		activity_1_reference.innerHTML = data.activities[0].reference[0].content;
 	} catch {
 		activity_1_item.style.display = "none";
 	}
@@ -23,6 +24,7 @@ function initiate_session() {
 		activity_2_danger.style.display = "none";
 		activity_2_card_success.style.display = "none";
 		activity_2_card_danger.style.display = "none";
+		activity_2_reference.innerHTML = data.activities[1].reference[0].content;
 	} catch {
 		activity_2_item.style.display = "none";
 		activity_1_item.style.borderBottom = "solid";
@@ -37,6 +39,7 @@ function initiate_session() {
 		activity_3_danger.style.display = "none";
 		activity_3_card_success.style.display = "none";
 		activity_3_card_danger.style.display = "none";
+		activity_3_reference.innerHTML = data.activities[2].reference[0].content;
 	} catch {
 		activity_3_item.style.display = "none";
 		activity_2_item.style.borderBottom = "solid";
@@ -51,6 +54,7 @@ function initiate_session() {
 		activity_4_danger.style.display = "none";
 		activity_4_card_success.style.display = "none";
 		activity_4_card_danger.style.display = "none";
+		activity_4_reference.innerHTML = data.activities[3].reference[0].content;
 	} catch {
 		activity_4_item.style.display = "none";
 		activity_3_item.style.borderBottom = "solid";
@@ -65,6 +69,7 @@ function initiate_session() {
 		activity_5_danger.style.display = "none";
 		activity_5_card_success.style.display = "none";
 		activity_5_card_danger.style.display = "none";
+		activity_5_reference.innerHTML = data.activities[4].reference[0].content;
 	} catch {
 		activity_5_item.style.display = "none";
 		activity_4_item.style.borderBottom = "solid";
@@ -79,6 +84,7 @@ function initiate_session() {
 		activity_6_danger.style.display = "none";
 		activity_6_card_success.style.display = "none";
 		activity_6_card_danger.style.display = "none";
+		activity_6_reference.innerHTML = data.activities[5].reference[0].content;
 	} catch {
 		activity_6_item.style.display = "none";
 		activity_5_item.style.borderBottom = "solid";
@@ -93,6 +99,7 @@ function initiate_session() {
 		activity_7_danger.style.display = "none";
 		activity_7_card_success.style.display = "none";
 		activity_7_card_danger.style.display = "none";
+		activity_7_reference.innerHTML = data.activities[6].reference[0].content;
 	} catch {
 		activity_7_item.style.display = "none";
 		activity_6_item.style.borderBottom = "solid";
@@ -107,6 +114,7 @@ function initiate_session() {
 		activity_8_danger.style.display = "none";
 		activity_8_card_success.style.display = "none";
 		activity_8_card_danger.style.display = "none";
+		activity_8_reference.innerHTML = data.activities[7].reference[0].content;
 	} catch {
 		activity_8_item.style.display = "none";
 		activity_7_item.style.borderBottom = "solid";
@@ -121,6 +129,7 @@ function initiate_session() {
 		activity_9_danger.style.display = "none";
 		activity_9_card_success.style.display = "none";
 		activity_9_card_danger.style.display = "none";
+		activity_9_reference.innerHTML = data.activities[8].reference[0].content;
 	} catch {
 		activity_9_item.style.display = "none";
 		activity_8_item.style.borderBottom = "solid";
@@ -135,6 +144,7 @@ function initiate_session() {
 		activity_10_danger.style.display = "none";
 		activity_10_card_success.style.display = "none";
 		activity_10_card_danger.style.display = "none";
+		activity_10_reference.innerHTML = data.activities[9].reference[0].content;
 	} catch {
 		activity_10_item.style.display = "none";
 		activity_9_item.style.borderBottom = "solid";
@@ -149,6 +159,7 @@ function initiate_session() {
 		activity_11_danger.style.display = "none";
 		activity_11_card_success.style.display = "none";
 		activity_11_card_danger.style.display = "none";
+		activity_11_reference.innerHTML = data.activities[10].reference[0].content;
 	} catch {
 		//activity_11_item.style.display = "none";
 		activity_10_item.style.borderBottom = "solid";
@@ -336,6 +347,7 @@ function update_activity(grade_response) {
 		// Reset all problem variables
 		attempt = 1;
 		request = false;
+		reference = false;
 
 		increment_activity(); // Show success for previous activity, show next one in user interface
 	} else {
@@ -363,6 +375,7 @@ function store_response(grade_response) {
 		js: js.value,
 		hint_id: hint,
 		request: request,
+		reference: reference,
 		evaluation: grade_response,
 		rule: rule,
 		w3c_validation: w3c_validation,
@@ -401,6 +414,8 @@ function store_response(grade_response) {
 		String(myObj.hint_id) +
 		"&entry.470737931=" +
 		String(myObj.request) +
+		"&entry.323101609=" +
+		String(myObj.reference) +
 		"&entry.1352313708=" +
 		String(myObj.evaluation) +
 		"&entry.853863687=" +
@@ -458,9 +473,9 @@ async function HTML_W3_Validation() {
 	var body_post = String(
 		"<!DOCTYPE html><head><style>" + css.value + "</style>" + "<title>W3C Validation</title></head><body>" + html.value + "<script>" + js.value + "</script></body>"
 	);
+	//https://cors-anywhere.herokuapp.com/
 	await fetch("https://validator.nu/?out=json", {
 		method: "post",
-		mode: "cors",
 		headers: {
 			"Content-Type": "text/html; charset=UTF-8"
 		},

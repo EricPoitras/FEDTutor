@@ -6,6 +6,7 @@ var submit = document.getElementById("submit");
 var activity = 0;
 var hint = 0;
 var request = false;
+var reference = false;
 var elapsed_time = 0;
 var startTime, endTime;
 var attempt = 1;
@@ -44,6 +45,7 @@ var activity_1_danger = document.getElementById("activity_1_danger");
 var btn_hint_1 = document.getElementById("btn_hint_1");
 var activity_1_card_success = document.getElementById("activity_1_card_success");
 var activity_1_card_danger = document.getElementById("activity_1_card_danger");
+var activity_1_reference = document.getElementById("activity_1_reference");
 
 var activity_2_item = document.getElementById("activity_2_item");
 var activity_2_title = document.getElementById("activity_2_title");
@@ -54,6 +56,7 @@ var activity_2_danger = document.getElementById("activity_2_danger");
 var btn_hint_2 = document.getElementById("btn_hint_2");
 var activity_2_card_success = document.getElementById("activity_2_card_success");
 var activity_2_card_danger = document.getElementById("activity_2_card_danger");
+var activity_2_reference = document.getElementById("activity_2_reference");
 
 var activity_3_item = document.getElementById("activity_3_item");
 var activity_3_title = document.getElementById("activity_3_title");
@@ -64,6 +67,7 @@ var activity_3_danger = document.getElementById("activity_3_danger");
 var btn_hint_3 = document.getElementById("btn_hint_3");
 var activity_3_card_success = document.getElementById("activity_3_card_success");
 var activity_3_card_danger = document.getElementById("activity_3_card_danger");
+var activity_3_reference = document.getElementById("activity_3_reference");
 
 var activity_4_item = document.getElementById("activity_4_item");
 var activity_4_title = document.getElementById("activity_4_title");
@@ -74,6 +78,7 @@ var activity_4_danger = document.getElementById("activity_4_danger");
 var btn_hint_4 = document.getElementById("btn_hint_4");
 var activity_4_card_success = document.getElementById("activity_4_card_success");
 var activity_4_card_danger = document.getElementById("activity_4_card_danger");
+var activity_4_reference = document.getElementById("activity_4_reference");
 
 var activity_5_item = document.getElementById("activity_5_item");
 var activity_5_title = document.getElementById("activity_5_title");
@@ -84,6 +89,7 @@ var activity_5_danger = document.getElementById("activity_5_danger");
 var btn_hint_5 = document.getElementById("btn_hint_5");
 var activity_5_card_success = document.getElementById("activity_5_card_success");
 var activity_5_card_danger = document.getElementById("activity_5_card_danger");
+var activity_5_reference = document.getElementById("activity_5_reference");
 
 var activity_6_item = document.getElementById("activity_6_item");
 var activity_6_title = document.getElementById("activity_6_title");
@@ -94,6 +100,7 @@ var activity_6_danger = document.getElementById("activity_6_danger");
 var btn_hint_6 = document.getElementById("btn_hint_6");
 var activity_6_card_success = document.getElementById("activity_6_card_success");
 var activity_6_card_danger = document.getElementById("activity_6_card_danger");
+var activity_6_reference = document.getElementById("activity_6_reference");
 
 var activity_7_item = document.getElementById("activity_7_item");
 var activity_7_title = document.getElementById("activity_7_title");
@@ -104,6 +111,7 @@ var activity_7_danger = document.getElementById("activity_7_danger");
 var btn_hint_7 = document.getElementById("btn_hint_7");
 var activity_7_card_success = document.getElementById("activity_7_card_success");
 var activity_7_card_danger = document.getElementById("activity_7_card_danger");
+var activity_7_reference = document.getElementById("activity_7_reference");
 
 var activity_8_item = document.getElementById("activity_8_item");
 var activity_8_title = document.getElementById("activity_8_title");
@@ -114,6 +122,7 @@ var activity_8_danger = document.getElementById("activity_8_danger");
 var btn_hint_8 = document.getElementById("btn_hint_8");
 var activity_8_card_success = document.getElementById("activity_8_card_success");
 var activity_8_card_danger = document.getElementById("activity_8_card_danger");
+var activity_8_reference = document.getElementById("activity_8_reference");
 
 var activity_9_item = document.getElementById("activity_9_item");
 var activity_9_title = document.getElementById("activity_9_title");
@@ -124,6 +133,7 @@ var activity_9_danger = document.getElementById("activity_9_danger");
 var btn_hint_9 = document.getElementById("btn_hint_9");
 var activity_9_card_success = document.getElementById("activity_9_card_success");
 var activity_9_card_danger = document.getElementById("activity_9_card_danger");
+var activity_9_reference = document.getElementById("activity_9_reference");
 
 var activity_10_item = document.getElementById("activity_10_item");
 var activity_10_title = document.getElementById("activity_10_title");
@@ -134,4 +144,5 @@ var activity_10_danger = document.getElementById("activity_10_danger");
 var btn_hint_10 = document.getElementById("btn_hint_10");
 var activity_10_card_success = document.getElementById("activity_10_card_success");
 var activity_10_card_danger = document.getElementById("activity_10_card_danger");
+var activity_10_reference = document.getElementById("activity_10_reference");
 // Add more activities as necessary...

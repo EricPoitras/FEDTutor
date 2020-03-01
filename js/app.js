@@ -8,6 +8,7 @@ function initiate_session() {
 		activity_1_title.textContent = data.activities[0].title;
 		activity_1_content.innerHTML = data.activities[0].content;
 		activity_1_hint.innerHTML = data.activities[0].hint[hint].content;
+		activity_1_solution.innerHTML = data.activities[0].hint[1].content;
 		activity_1_success.style.display = "none";
 		activity_1_danger.style.display = "none";
 		activity_1_card_success.style.display = "none";
@@ -20,6 +21,7 @@ function initiate_session() {
 		activity_2_title.textContent = data.activities[1].title;
 		activity_2_content.innerHTML = data.activities[1].content;
 		activity_2_hint.innerHTML = data.activities[1].hint[hint].content;
+		activity_2_solution.innerHTML = data.activities[1].hint[1].content;
 		activity_2_success.style.display = "none";
 		activity_2_danger.style.display = "none";
 		activity_2_card_success.style.display = "none";
@@ -35,6 +37,7 @@ function initiate_session() {
 		activity_3_title.textContent = data.activities[2].title;
 		activity_3_content.innerHTML = data.activities[2].content;
 		activity_3_hint.innerHTML = data.activities[2].hint[hint].content;
+		activity_3_solution.innerHTML = data.activities[2].hint[1].content;
 		activity_3_success.style.display = "none";
 		activity_3_danger.style.display = "none";
 		activity_3_card_success.style.display = "none";
@@ -50,6 +53,7 @@ function initiate_session() {
 		activity_4_title.textContent = data.activities[3].title;
 		activity_4_content.innerHTML = data.activities[3].content;
 		activity_4_hint.innerHTML = data.activities[3].hint[hint].content;
+		activity_4_solution.innerHTML = data.activities[3].hint[1].content;
 		activity_4_success.style.display = "none";
 		activity_4_danger.style.display = "none";
 		activity_4_card_success.style.display = "none";
@@ -65,6 +69,7 @@ function initiate_session() {
 		activity_5_title.textContent = data.activities[4].title;
 		activity_5_content.innerHTML = data.activities[4].content;
 		activity_5_hint.innerHTML = data.activities[4].hint[hint].content;
+		activity_5_solution.innerHTML = data.activities[4].hint[1].content;
 		activity_5_success.style.display = "none";
 		activity_5_danger.style.display = "none";
 		activity_5_card_success.style.display = "none";
@@ -80,6 +85,7 @@ function initiate_session() {
 		activity_6_title.textContent = data.activities[5].title;
 		activity_6_content.innerHTML = data.activities[5].content;
 		activity_6_hint.innerHTML = data.activities[5].hint[hint].content;
+		activity_6_solution.innerHTML = data.activities[5].hint[1].content;
 		activity_6_success.style.display = "none";
 		activity_6_danger.style.display = "none";
 		activity_6_card_success.style.display = "none";
@@ -95,6 +101,7 @@ function initiate_session() {
 		activity_7_title.textContent = data.activities[6].title;
 		activity_7_content.innerHTML = data.activities[6].content;
 		activity_7_hint.innerHTML = data.activities[6].hint[hint].content;
+		activity_7_solution.innerHTML = data.activities[6].hint[1].content;
 		activity_7_success.style.display = "none";
 		activity_7_danger.style.display = "none";
 		activity_7_card_success.style.display = "none";
@@ -110,6 +117,7 @@ function initiate_session() {
 		activity_8_title.textContent = data.activities[7].title;
 		activity_8_content.innerHTML = data.activities[7].content;
 		activity_8_hint.innerHTML = data.activities[7].hint[hint].content;
+		activity_8_solution.innerHTML = data.activities[7].hint[1].content;
 		activity_8_success.style.display = "none";
 		activity_8_danger.style.display = "none";
 		activity_8_card_success.style.display = "none";
@@ -125,6 +133,7 @@ function initiate_session() {
 		activity_9_title.textContent = data.activities[8].title;
 		activity_9_content.innerHTML = data.activities[8].content;
 		activity_9_hint.innerHTML = data.activities[8].hint[hint].content;
+		activity_9_solution.innerHTML = data.activities[8].hint[1].content;
 		activity_9_success.style.display = "none";
 		activity_9_danger.style.display = "none";
 		activity_9_card_success.style.display = "none";
@@ -140,6 +149,7 @@ function initiate_session() {
 		activity_10_title.textContent = data.activities[9].title;
 		activity_10_content.innerHTML = data.activities[9].content;
 		activity_10_hint.innerHTML = data.activities[9].hint[hint].content;
+		activity_10_solution.innerHTML = data.activities[9].hint[1].content;
 		activity_10_success.style.display = "none";
 		activity_10_danger.style.display = "none";
 		activity_10_card_success.style.display = "none";
@@ -155,6 +165,7 @@ function initiate_session() {
 		activity_11_title.textContent = data.activities[10].title;
 		activity_11_content.innerHTML = data.activities[10].content;
 		activity_11_hint.innerHTML = data.activities[10].hint[hint].content;
+		activity_11_solution.innerHTML = data.activities[10].hint[1].content;
 		activity_11_success.style.display = "none";
 		activity_11_danger.style.display = "none";
 		activity_11_card_success.style.display = "none";
@@ -335,6 +346,13 @@ function increment_activity() {
 		activity_9_card_success.innerHTML = rule;
 		activity_9_card_danger.style.display = "none";
 		activity_10_title.removeAttribute("disabled");
+	}else if (activity == 10) {
+		activity_10_success.style.display = "inline";
+		activity_10_danger.style.display = "none";
+		activity_10_card_success.style.display = "block";
+		activity_10_card_success.innerHTML = rule;
+		activity_10_card_danger.style.display = "none";
+		//activity_10_title.removeAttribute("disabled");
 	}
 
 	close_activity();
@@ -348,6 +366,7 @@ function update_activity(grade_response) {
 		attempt = 1;
 		request = false;
 		reference = false;
+		solution = false;
 
 		increment_activity(); // Show success for previous activity, show next one in user interface
 	} else {
@@ -375,6 +394,7 @@ function store_response(grade_response) {
 		js: js.value,
 		hint_id: hint,
 		request: request,
+		solution: solution,
 		reference: reference,
 		evaluation: grade_response,
 		rule: rule,
@@ -405,7 +425,7 @@ function store_response(grade_response) {
 		"&entry.792179151=" +
 		String(myObj.activity) +
 		"&entry.1769579832=" +
-		String(myObj.html) +
+		String(myObj.html).replace(/(\r\n|\n|\r)/gm,"") +
 		"&entry.194875640=" +
 		String(myObj.css) +
 		"&entry.895369426=" +
@@ -414,6 +434,8 @@ function store_response(grade_response) {
 		String(myObj.hint_id) +
 		"&entry.470737931=" +
 		String(myObj.request) +
+		"&entry.667107017="+
+		String(myObj.solution) +
 		"&entry.323101609=" +
 		String(myObj.reference) +
 		"&entry.1352313708=" +

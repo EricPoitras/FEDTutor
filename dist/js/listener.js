@@ -137,3 +137,45 @@ activity_9_reference.addEventListener("click", function() {
 activity_10_reference.addEventListener("click", function() {
 	reference = true;
 });
+
+// Add more if necessary...
+
+btn_solution_1.addEventListener("click", function(){
+	solution = true;
+});
+
+btn_solution_2.addEventListener("click", function(){
+	solution = true;
+});
+
+btn_solution_3.addEventListener("click", function(){
+	solution = true;
+});
+
+btn_solution_4.addEventListener("click", function(){
+	solution = true;
+});
+
+btn_solution_5.addEventListener("click", function(){
+	solution = true;
+});
+
+btn_solution_6.addEventListener("click", function(){
+	solution = true;
+});
+
+btn_solution_7.addEventListener("click", function(){
+	solution = true;
+});
+
+btn_solution_8.addEventListener("click", function(){
+	solution = true;
+});
+
+btn_solution_9.addEventListener("click", function(){
+	solution = true;
+});
+
+btn_solution_10.addEventListener("click", function(){
+	solution = true;
+});

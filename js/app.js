@@ -372,7 +372,7 @@ function store_response(grade_response) {
 	this.data.responses.push(myObj);
 	console.log(this.data);
 	var urladress =
-		"https://cors-anywhere.herokuapp.com/https://docs.google.com/forms/d/e/1FAIpQLScSxxD6AxEzekTYdPjvUP0TitGSvt6pRRrK-eZL0fP0g9QN9A/formResponse?" +
+		"https://docs.google.com/forms/d/e/1FAIpQLScSxxD6AxEzekTYdPjvUP0TitGSvt6pRRrK-eZL0fP0g9QN9A/formResponse?" +
 		"entry.1792772475=" +
 		String(myObj.version) +
 		"&entry.1894837576=" +
@@ -414,6 +414,7 @@ function store_response(grade_response) {
 		"&submit=Submit";
 	fetch(urladress, {
 		method: "post",
+		mode: "no-cors",
 		headers: {
 			"Content-Type": "application/json"
 		}
@@ -454,21 +455,15 @@ function grade_response() {
 }
 
 async function HTML_W3_Validation() {
+	var body_post = String(
+		"<!DOCTYPE html><head><style>" + css.value + "</style>" + "<title>W3C Validation</title></head><body>" + html.value + "<script>" + js.value + "</script></body>"
+	);
 	await fetch("https://cors-anywhere.herokuapp.com/http://html5.validator.nu/?out=json", {
 		method: "post",
 		headers: {
 			"Content-Type": "text/html; charset=UTF-8"
 		},
-		body: String(
-			"<!DOCTYPE html><head><style>" +
-				css.value +
-				"</style>" +
-				"<title>W3C Validation</title></head><body>" +
-				html.value +
-				"<script>" +
-				js.value +
-				"</script></body>"
-		)
+		body: body_post
 	})
 		.then(response => response.json())
 		.then(function(data) {

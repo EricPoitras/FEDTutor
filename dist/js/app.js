@@ -414,6 +414,7 @@ function store_response(grade_response) {
 		"&submit=Submit";
 	fetch(urladress, {
 		method: "post",
+		mode: "no-cors",
 		headers: {
 			"Content-Type": "application/json"
 		}
@@ -454,21 +455,16 @@ function grade_response() {
 }
 
 async function HTML_W3_Validation() {
+	var body_post = String(
+		"<!DOCTYPE html><head><style>" + css.value + "</style>" + "<title>W3C Validation</title></head><body>" + html.value + "<script>" + js.value + "</script></body>"
+	);
 	await fetch("http://html5.validator.nu/?out=json", {
 		method: "post",
+		mode: "cors",
 		headers: {
 			"Content-Type": "text/html; charset=UTF-8"
 		},
-		body: String(
-			"<!DOCTYPE html><head><style>" +
-				css.value +
-				"</style>" +
-				"<title>W3C Validation</title></head><body>" +
-				html.value +
-				"<script>" +
-				js.value +
-				"</script></body>"
-		)
+		body: body_post
 	})
 		.then(response => response.json())
 		.then(function(data) {

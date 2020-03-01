@@ -265,63 +265,63 @@ function increment_activity() {
 		activity_1_success.style.display = "inline";
 		activity_1_danger.style.display = "none";
 		activity_1_card_success.style.display = "block";
-		activity_1_card_success.textContent = rule;
+		activity_1_card_success.innerHTML = rule;
 		activity_1_card_danger.style.display = "none";
 		activity_2_title.removeAttribute("disabled");
 	} else if (activity == 2) {
 		activity_2_success.style.display = "inline";
 		activity_2_danger.style.display = "none";
 		activity_2_card_success.style.display = "block";
-		activity_2_card_success.textContent = rule;
+		activity_2_card_success.innerHTML = rule;
 		activity_2_card_danger.style.display = "none";
 		activity_3_title.removeAttribute("disabled");
 	} else if (activity == 3) {
 		activity_3_success.style.display = "inline";
 		activity_3_danger.style.display = "none";
 		activity_3_card_success.style.display = "block";
-		activity_3_card_success.textContent = rule;
+		activity_3_card_success.innerHTML = rule;
 		activity_3_card_danger.style.display = "none";
 		activity_4_title.removeAttribute("disabled");
 	} else if (activity == 4) {
 		activity_4_success.style.display = "inline";
 		activity_4_danger.style.display = "none";
 		activity_4_card_success.style.display = "block";
-		activity_4_card_success.textContent = rule;
+		activity_4_card_success.innerHTML = rule;
 		activity_4_card_danger.style.display = "none";
 		activity_5_title.removeAttribute("disabled");
 	} else if (activity == 5) {
 		activity_5_success.style.display = "inline";
 		activity_5_danger.style.display = "none";
 		activity_5_card_success.style.display = "block";
-		activity_5_card_success.textContent = rule;
+		activity_5_card_success.innerHTML = rule;
 		activity_5_card_danger.style.display = "none";
 		activity_6_title.removeAttribute("disabled");
 	} else if (activity == 6) {
 		activity_6_success.style.display = "inline";
 		activity_6_danger.style.display = "none";
 		activity_6_card_success.style.display = "block";
-		activity_6_card_success.textContent = rule;
+		activity_6_card_success.innerHTML = rule;
 		activity_6_card_danger.style.display = "none";
 		activity_7_title.removeAttribute("disabled");
 	} else if (activity == 7) {
 		activity_7_success.style.display = "inline";
 		activity_7_danger.style.display = "none";
 		activity_7_card_success.style.display = "block";
-		activity_7_card_success.textContent = rule;
+		activity_7_card_success.innerHTML = rule;
 		activity_7_card_danger.style.display = "none";
 		activity_8_title.removeAttribute("disabled");
 	} else if (activity == 8) {
 		activity_8_success.style.display = "inline";
 		activity_8_danger.style.display = "none";
 		activity_8_card_success.style.display = "block";
-		activity_8_card_success.textContent = rule;
+		activity_8_card_success.innerHTML = rule;
 		activity_8_card_danger.style.display = "none";
 		activity_9_title.removeAttribute("disabled");
 	} else if (activity == 9) {
 		activity_9_success.style.display = "inline";
 		activity_9_danger.style.display = "none";
 		activity_9_card_success.style.display = "block";
-		activity_9_card_success.textContent = rule;
+		activity_9_card_success.innerHTML = rule;
 		activity_9_card_danger.style.display = "none";
 		activity_10_title.removeAttribute("disabled");
 	}
@@ -436,19 +436,19 @@ function grade_response() {
 		.replace(/"/g, "'");
 	console.log(parsed_html);
 	if (parsed_html.includes(data.activities[activity].solution[0].criteria) == false) {
-		rule = "Opening tag is not mentioned";
+		rule = "<strong>Tutor Feedback</strong><br>Opening tag is not mentioned";
 		//console.log("Opening tag is not mentioned");
 		return "incorrect";
 	} else if (parsed_html.includes(data.activities[activity].solution[1].criteria) == false) {
-		rule = "Closing tag is not mentioned";
+		rule = "<strong>Tutor Feedback</strong><br>Closing tag is not mentioned";
 		//console.log("Closing tag is not mentioned");
 		return "incorrect";
 	} else if (parsed_html.indexOf(data.activities[activity].solution[0].criteria) > parsed_html.lastIndexOf(data.activities[activity].solution[1].criteria)) {
-		rule = "Opening tag is mentioned after the closing tag";
+		rule = "<strong>Tutor Feedback</strong><br>Opening tag is mentioned after the closing tag";
 		//console.log("Opening tag is not mentioned prior to closing tag");
 		return "incorrect";
 	} else {
-		rule = "Opening tag is mentioned before the closing tag";
+		rule = "<strong>Tutor Feedback</strong><br>Opening tag is mentioned before the closing tag";
 		return "correct";
 	}
 }
@@ -472,17 +472,32 @@ async function HTML_W3_Validation() {
 	})
 		.then(response => response.json())
 		.then(function(data) {
-			//console.log("data is", data);
+			//https://validator.w3.org/docs/errors.html
 			console.log(data);
+			w3c_validation = "<br><strong>W3C Markup Validation Service</strong><br>";
 			for (var i = 0; i < data.messages.length; i++) {
-				w3c_validation += data.messages[i].message + " : " + data.messages[i].extract + ";</br>";
+				var number = i + 1;
+				w3c_validation +=
+					"<span> " +
+					number +
+					". " +
+					String(data.messages[i].message)
+						.replace(/</g, "<span><</span>")
+						.replace(/"/g, "'") +
+					" : </span><br>" +
+					"<div contenteditable>" +
+					String(data.messages[i].extract)
+						.replace(/</g, "<span><</span>")
+						.replace(/"/g, "'") +
+					"</div>" +
+					"</br>";
 				//Do something
 			}
 			//console.log(w3c_validation);
 			store_response(grade_response());
 		})
 		.catch(function(error) {
-			w3c_validation = "";
+			w3c_validation = "<br><strong>W3C Markup Validation Service</strong>";
 			console.log("error is", error);
 			store_response(grade_response());
 		});

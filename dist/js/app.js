@@ -458,7 +458,7 @@ async function HTML_W3_Validation() {
 	var body_post = String(
 		"<!DOCTYPE html><head><style>" + css.value + "</style>" + "<title>W3C Validation</title></head><body>" + html.value + "<script>" + js.value + "</script></body>"
 	);
-	await fetch("http://html5.validator.nu/?out=json", {
+	await fetch("https://validator.nu/?out=json", {
 		method: "post",
 		mode: "cors",
 		headers: {

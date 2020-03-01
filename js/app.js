@@ -458,7 +458,8 @@ async function HTML_W3_Validation() {
 	var body_post = String(
 		"<!DOCTYPE html><head><style>" + css.value + "</style>" + "<title>W3C Validation</title></head><body>" + html.value + "<script>" + js.value + "</script></body>"
 	);
-	await fetch("https://cors-anywhere.herokuapp.com/http://html5.validator.nu/?out=json", {
+	//https://cors-anywhere.herokuapp.com/
+	await fetch("https://validator.nu/?out=json", {
 		method: "post",
 		headers: {
 			"Content-Type": "text/html; charset=UTF-8"
